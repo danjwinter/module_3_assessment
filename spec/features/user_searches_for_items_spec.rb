@@ -6,24 +6,17 @@ RSpec.describe do
       VCR.use_cassette("best_buy_service#search_one_word") do
         visit root_path
 
-        # save_and_open_page
-
         fill_in :search_search_field, with: "sennheiser"
         click_on "Search"
 
         expect(current_path).to eq "/search"
 
-
-
         within(".items") do
           expect(page).to have_selector('li', count: 15)
         end
 
-
         within(".items li:first-child") do
           expect(page).to have_css "img[src*='http://images.bestbuy.com/BestBuy_US/images/products/9678/9678429_sa.jpg']"
-
-
           expect(page).to have_content "sku 9678429"
           expect(page).to have_content "name Sennheiser - Camera-Mount Wireless Microphone System - Black"
           expect(page).to have_content "customer average review not given"
@@ -41,14 +34,10 @@ RSpec.describe do
       VCR.use_cassette("best_buy_service#seach_multiple_words") do
         visit root_path
 
-        # save_and_open_page
-
         fill_in :search_search_field, with: "sennheiser headphones white"
         click_on "Search"
 
         expect(current_path).to eq "/search"
-
-
 
         within(".items") do
           expect(page).to have_selector('li', count: 6)

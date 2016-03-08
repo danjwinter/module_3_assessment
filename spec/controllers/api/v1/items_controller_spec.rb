@@ -52,13 +52,9 @@ RSpec.describe Api::V1::ItemsController, type: :controller do
 
   describe "Post #create" do
     it "returns created item and a 201 response" do
-    # item = Item.create(name: "Chocolate covered banana",
-    #                    description: "The Bluth Way",
-    #                    image_url: "http://bakedbree.com/wp-content/uploads/2010/07/july-18-2010-64web.jpg")
-
       post :create, format: :json, name: "Chocolate covered banana",
-                         description: "The Bluth Way",
-                         image_url: "http://bakedbree.com/wp-content/uploads/2010/07/july-18-2010-64web.jpg"
+                                   description: "The Bluth Way",
+                                   image_url: "http://bakedbree.com/wp-content/uploads/2010/07/july-18-2010-64web.jpg"
 
      expect(json_response[:name]).to eq "Chocolate covered banana"
      expect(json_response[:description]).to eq "The Bluth Way"
