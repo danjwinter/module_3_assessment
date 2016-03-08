@@ -7,11 +7,11 @@ class Product
               :sale_price
 
   def initialize(result)
-    @customer_review_average = result[:customerReviewAverage]
-    @sku = result[:sku]
-    @name = result[:name]
-    @short_description = result[:shortDescription]
-    @image = result[:image]
-    @sale_price = result[:salePrice]
+    @customer_review_average = result[:customerReviewAverage] || "not given"
+    @sku = result[:sku] || "not given"
+    @name = result[:name] || "not given"
+    @short_description = result[:shortDescription] || "not given"
+    @image = result[:image] || "not given"
+    @sale_price = result[:salePrice] || "not given"
   end
 end
