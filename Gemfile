@@ -13,13 +13,27 @@ gem "haml-rails"
 gem "therubyracer"
 gem "less-rails-bootstrap"
 gem 'rspec-rails'
+gem "figaro"
+gem 'faraday'
+gem 'responders'
+gem 'active_model_serializers'
 
 
 group :development do
   gem "spring"
 end
 
+group :test do
+  gem "vcr"
+  gem "webmock"
+end
+
 group :development, :test do
-  gem "minitest-rails-capybara"
+  gem "byebug"
+  gem "capybara"
+  gem "launchy"
+  gem "binding_of_caller"
+  gem "better_errors"
+  gem "database_cleaner"
   gem "pry", :require => "pry"
 end
