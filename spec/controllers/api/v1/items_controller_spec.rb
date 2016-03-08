@@ -13,13 +13,13 @@ RSpec.describe Api::V1::ItemsController, type: :controller do
 
       get :index, format: :json
 
-      binding.pry
-      expect(json_response.count).to eq 2
-      expect(json_response.first).to have_key :name
-      expect(json_response.first).to have_key :description
-      expect(json_response.first).to have_key :image_url
-      expect(json_response.first).to_not have_key :created_at
-      expect(json_response.first).to have_key :updated_at
+      items_response = json_response[:items]
+      expect(items_response.count).to eq 2
+      expect(items_response.first).to have_key :name
+      expect(items_response.first).to have_key :description
+      expect(items_response.first).to have_key :image_url
+      expect(items_response.first).to_not have_key :created_at
+      expect(items_response.first).to_not have_key :updated_at
 
     end
   end
