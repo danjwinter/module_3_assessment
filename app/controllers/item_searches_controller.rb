@@ -5,6 +5,6 @@ class ItemSearchesController < ApplicationController
   end
 
   def search_results
-    BestBuyService.new.products("sennheiser")
+    @products = BestBuyService.new.products("sennheiser")
   end
 end

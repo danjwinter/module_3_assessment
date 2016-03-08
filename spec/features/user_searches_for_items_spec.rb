@@ -12,6 +12,8 @@ RSpec.describe do
 
       expect(current_path).to eq "/search"
 
+      save_and_open_page
+
       within(".items") do
         expect(page).to have_selector('li', count: 15)
       end

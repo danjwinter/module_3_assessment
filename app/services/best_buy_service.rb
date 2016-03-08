@@ -14,17 +14,15 @@ class BestBuyService
   end
 
   def products(search_term)
-    binding.pry
-    parse(connection.get("products(longDescription=#{search_term}*)", pageSize: 15, apiKey: ENV['BEST_BUY_KEY'],format: "json"))
+    results = parse(connection.get("products(longDescription=#{search_term}*)", pageSize: 15, apiKey: ENV['BEST_BUY_KEY'],format: "json"))
+    results[:products].map do |result|
+      Product.new(result)
+    end
   end
 
   private
 
   def parse(response)
     JSON.parse(response.body, symbolize_names: true)
-  end
-
-  def add_token_to_headers
-    connection.headers = {Authorization: "token #{ENV['BEST_BUY_KEY']}"}
   end
 end

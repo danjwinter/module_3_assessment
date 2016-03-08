@@ -1,0 +1,14 @@
+<div class="items">
+  <ul>
+    <% @products.each do |product| %>
+      <li>
+      name <%= product.name %>
+      sku <%= product.sku %>
+      image <%= product.image %>
+      sale price <%= product.sale_price %>
+      short description <%= product.short_description %>
+      </li>
+    <% end %>
+
+</ul>
+</div>
