@@ -12,7 +12,8 @@ gem "faker"
 gem "haml-rails"
 gem "therubyracer"
 gem "less-rails-bootstrap"
-gem "minitest-rails"
+gem 'rspec-rails'
+
 
 group :development do
   gem "spring"
