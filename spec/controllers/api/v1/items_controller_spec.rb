@@ -20,7 +20,21 @@ RSpec.describe Api::V1::ItemsController, type: :controller do
       expect(items_response.first).to have_key :image_url
       expect(items_response.first).to_not have_key :created_at
       expect(items_response.first).to_not have_key :updated_at
+    end
+  end
 
+  describe "Get #show" do
+    it "returns JSON response for that item" do
+      item = Item.create(name: "Chocolate covered banana",
+                         description: "The Bluth Way",
+                         image_url: "http://bakedbree.com/wp-content/uploads/2010/07/july-18-2010-64web.jpg")
+      get :show, id: item.id, format: :json
+      item_response
+      expect(json_response[:name]).to eq item.name
+      expect(json_response[:description]).to eq item.description
+      expect(json_response[:image_url]).to eq item.image_url
+      expect(json_response).to_not have_key :created_at
+      expect(json_response).to_not have_key :updated_at
     end
   end
 end

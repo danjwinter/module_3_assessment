@@ -16,7 +16,7 @@ gem 'rspec-rails'
 gem "figaro"
 gem 'faraday'
 gem 'responders'
-gem 'active_model_serializers'
+gem 'active_model_serializers', git: "https://github.com/rails-api/active_model_serializers"
 
 
 group :development do
