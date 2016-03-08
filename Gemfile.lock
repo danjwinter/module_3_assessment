@@ -175,6 +175,8 @@ GEM
       sprockets (~> 2.8, < 3.0)
       sprockets-rails (~> 2.0)
     sexp_processor (4.7.0)
+    shoulda-matchers (3.1.1)
+      activesupport (>= 4.0.0)
     slop (3.6.0)
     spring (1.6.4)
     sprockets (2.12.4)
@@ -235,6 +237,7 @@ DEPENDENCIES
   responders
   rspec-rails
   sass-rails (~> 4.0.3)
+  shoulda-matchers (~> 3.1)
   spring
   sqlite3
   therubyracer

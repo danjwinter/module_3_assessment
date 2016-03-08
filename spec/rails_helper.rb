@@ -14,6 +14,15 @@ VCR.configure do |c|
   c.allow_http_connections_when_no_cassette = true
 end
 
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    # Choose a test framework:
+    with.test_framework :rspec
+
+    with.library :rails
+  end
+end
+
 def json_response
   @json_response ||= JSON.parse(response.body, symbolize_names: true)
 end
