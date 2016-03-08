@@ -94,7 +94,7 @@ def sample_product_result
   [{:id=>"cat00000", :name=>"Best Buy"}, {:id=>"abcat0400000", :name=>"Cameras & Camcorders"}, {:id=>"abcat0410022", :name=>"Camcorder Accessories"}, {:id=>"pcmcat258000050011", :name=>"Microphones"}],
  :lists=>[],
  :customerReviewCount=>nil,
- :customerReviewAverage=>nil,
+ :customerReviewAverage=>5,
  :customerTopRated=>false,
  :format=>nil,
  :freeShipping=>true,

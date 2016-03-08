@@ -16,10 +16,20 @@ RSpec.describe Product do
 
     expect(@product.name).to eq "Sennheiser - Camera-Mount Wireless Microphone System - Black"
     expect(@product.sku).to eq 9678429
-    expect(@product.customer_review_average).to eq "not given"
+    expect(@product.customer_review_average).to eq 5
     expect(@product.short_description).to eq sample_product_result[:shortDescription]
     expect(@product.sale_price).to eq 629.95
     expect(@product.image).to eq "http://images.bestbuy.com/BestBuy_US/images/products/9678/9678429_sa.jpg"
   end
 
+  it "should have defaults when requested traits not given" do
+    @product = Product.new({})
+
+    expect(@product.name).to eq "not given"
+    expect(@product.sku).to eq "not given"
+    expect(@product.customer_review_average).to eq "not given"
+    expect(@product.short_description).to eq "not given"
+    expect(@product.sale_price).to eq "not given"
+    expect(@product.image).to eq "not given"
+  end
 end
