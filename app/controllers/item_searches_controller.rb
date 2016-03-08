@@ -5,7 +5,6 @@ class ItemSearchesController < ApplicationController
   end
 
   def search_results
-    binding.pry
     @products = BestBuyService.new.products(params[:search][:search_field])
   end
 end

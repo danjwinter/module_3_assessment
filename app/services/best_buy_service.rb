@@ -14,10 +14,17 @@ class BestBuyService
   end
 
   def products(search_term)
-    results = parse(connection.get("products(longDescription=#{search_term}*)", pageSize: 15, apiKey: ENV['BEST_BUY_KEY'],format: "json"))
+    # if search_term.split.count > 1
+    #   search_term.split
+    # else
+      search = search_term.split.map do |term|
+        "longDescription=#{term}*"
+      end.join("&")
+    results = parse(connection.get("products(#{search})", pageSize: 15, apiKey: ENV['BEST_BUY_KEY'],format: "json"))
     results[:products].map do |result|
       Product.new(result)
     end
+  # end
   end
 
   private
