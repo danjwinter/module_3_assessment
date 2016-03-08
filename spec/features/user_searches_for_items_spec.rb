@@ -19,13 +19,16 @@ RSpec.describe do
           expect(page).to have_selector('li', count: 15)
         end
 
+        expect(page).to have_css "img[src*='http://images.bestbuy.com/BestBuy_US/images/products/9068/9068191_sa.jpg']"
+
         within(".items li:first-child") do
+
+
           expect(page).to have_content "sku 9678429"
           expect(page).to have_content "name Sennheiser - Camera-Mount Wireless Microphone System - Black"
           expect(page).to have_content "customer average review not given"
           expect(page).to have_content "short description SENNHEISER Camera-Mount Wireless Microphone System: Invisible clip-on microphone; sturdy metal housing; automatic frequency management; easy-to-read illuminated display; 4-level battery indicator; 626-668MHz frequency range"
           expect(page).to have_content "sale price 629.95"
-          expect(page).to have_content "image http://images.bestbuy.com/BestBuy_US/images/products/9678/9678429_sa.jpg"
           expect(page).to_not have_content "regular price 629.95"
           expect(page).to_not have_content "low price guarantee"
         end
@@ -57,7 +60,7 @@ RSpec.describe do
           expect(page).to have_content "customer average review not given"
           expect(page).to have_content "short description SENNHEISER CX 1.00 Earbud Headphones: Noise-blocking design; dynamic transducer principle; ultrasmall design; 3.5mm connector; 3.9' cable; includes 4 sizes of ear adapters"
           expect(page).to have_content "sale price 44.95"
-          expect(page).to have_content "image http://images.bestbuy.com/BestBuy_US/images/products/9068/9068191_sa.jpg"
+
           expect(page).to_not have_content "regular price 629.95"
           expect(page).to_not have_content "low price guarantee"
         end

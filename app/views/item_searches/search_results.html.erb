@@ -6,12 +6,18 @@
     <ul>
       <% @products.each do |product| %>
         <li>
+        <%= image_tag product.image %>
+        <br>
         name <%= product.name %>
+        <br>
         sku <%= product.sku %>
-        image <%= product.image %>
+        <br>
         sale price <%= product.sale_price %>
+        <br>
         short description <%= product.short_description %>
+        <br>
         customer average review <%= product.customer_review_average %>
+        <br>
         </li>
       <% end %>
     </ul>
