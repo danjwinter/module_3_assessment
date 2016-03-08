@@ -1,4 +1,4 @@
-<% form_for(:search, path:"/search", method: "get") do |f| %>
-  <%= f.text_field :search_field, "Search field" %>
+<%= form_for(:search, url: '/search') do |f| %>
+  <%= f.text_field :search_field %>
   <%= f.submit "Search" %>
 <% end %>

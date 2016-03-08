@@ -5,10 +5,10 @@ RSpec.describe do
     it "allows them to search and return appropriate results from best buy api" do
       visit root_path
 
-      save_and_open_page
+      # save_and_open_page
 
-      fill_in "Search field", with: "sennheiser"
-      click_on "search"
+      fill_in :search_search_field, with: "sennheiser"
+      click_on "Search"
 
       expect(current_path).to eq "/search"
 

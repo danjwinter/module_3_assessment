@@ -1,22 +1,21 @@
 require 'open-uri'
 
 class BestBuyService
-  attr_reader :connection, :user
+  attr_reader :connection
 
-  def initialize(user)
+  def initialize
     @connection ||= Faraday.new(url: "http://api.bestbuy.com/v1/") do |faraday|
       faraday.request :url_encoded
       faraday.response :logger
       faraday.headers['Content-Type'] = 'application/json'
       faraday.adapter Faraday.default_adapter
     end
-    @user = user
 
-    add_token_to_headers
   end
 
-  def products(product_id)
-    parse(connection.get("products/#{product_id}.json", apiKey: ENV['BEST_BUY_KEY']))
+  def products(search_term)
+    binding.pry
+    parse(connection.get("products(longDescription=#{search_term}*)", pageSize: 15, apiKey: ENV['BEST_BUY_KEY'],format: "json"))
   end
 
   private
