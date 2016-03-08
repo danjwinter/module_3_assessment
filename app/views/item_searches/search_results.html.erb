@@ -1,15 +1,19 @@
-<div class="items">
-  <ul>
-    <% @products.each do |product| %>
-      <li>
-      name <%= product.name %>
-      sku <%= product.sku %>
-      image <%= product.image %>
-      sale price <%= product.sale_price %>
-      short description <%= product.short_description %>
-      customer average review <%= product.customer_review_average %>
-      </li>
-    <% end %>
-
-</ul>
-</div>
+<% if @products.empty? %>
+  Your search returned no results.
+  <%= link_to root_path, "Search Again" %>
+<% else %>
+  <div class="items">
+    <ul>
+      <% @products.each do |product| %>
+        <li>
+        name <%= product.name %>
+        sku <%= product.sku %>
+        image <%= product.image %>
+        sale price <%= product.sale_price %>
+        short description <%= product.short_description %>
+        customer average review <%= product.customer_review_average %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

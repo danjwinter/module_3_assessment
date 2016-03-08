@@ -14,9 +14,6 @@ class BestBuyService
   end
 
   def products(search_term)
-    # if search_term.split.count > 1
-    #   search_term.split
-    # else
       search = search_term.split.map do |term|
         "longDescription=#{term}*"
       end.join("&")
@@ -24,7 +21,6 @@ class BestBuyService
     results[:products].map do |result|
       Product.new(result)
     end
-  # end
   end
 
   private
